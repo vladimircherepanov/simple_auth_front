@@ -1,0 +1,42 @@
+html {
+    font-size: 16px;
+}
+
+.App {
+    font-family: sans-serif;
+}
+.signupForm {
+    margin: 4%;
+    max-width: 400px;
+}
+.form-alert {
+    font-size: 0.9rem;
+    color: brown;
+}
+.form-control,
+.btn {
+    margin-top: 0.5rem;
+}
+.subscribeForm {
+    max-width: 1000px;
+}
+
+.btn.btn-primary {
+    min-width: 100%;
+    height: calc(3.5rem + 2px);
+}
+label {
+    color: grey;
+}
+
+.form-control#subscribeField {
+    background-color: white;
+}
+
+.form-control#subscribeField2 {
+    background-color: red;
+}
+.mb-3.nav.nav-tabs.nav-justified{
+   border-radius: 0;
+}
+
