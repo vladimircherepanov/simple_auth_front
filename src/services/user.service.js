@@ -23,10 +23,17 @@ const allUsers = () => {
     return axios.get(API_URL + "admin/allusers", { headers: authHeader() });
 };
 
+const allRoles = () => {
+    return axios.get(API_URL + "admin/allroles", { headers: authHeader() });
+};
+
+
+
 export default {
     getPublicContent,
     getUserBoard,
     getModeratorBoard,
     getAdminBoard,
     allUsers,
+    allRoles,
 };

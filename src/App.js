@@ -17,6 +17,9 @@ import BoardAdmin from "./components/AdminBoard/BoardAdmin";
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
 
+import {allUsers, allRoles} from "./actions/users";
+
+
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -27,11 +30,19 @@ const App = () => {
 
   let location = useLocation();
 
-  /*useEffect(() => {
+  useEffect(() => {
     if (["/login", "/register"].includes(location.pathname)) {
       dispatch(clearMessage()); // clear message when changing location
     }
-  }, [dispatch, location]); */
+  }, [dispatch, location]);
+
+  useEffect(() => {
+    if (["/admin"].includes(location.pathname)) {
+      dispatch(allUsers());
+      dispatch(allRoles());
+    }
+  }, [dispatch, location]);
+
 
   const logOut = useCallback(() => {
     dispatch(logout());

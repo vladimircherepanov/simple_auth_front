@@ -1,15 +1,26 @@
-import {ALL_USERS} from "../actions/types";
-
-const initialState = {};
+import {ALL_USERS, ALL_ROLES} from "../actions/types";
+import UserService from "../services/user.service";
+const initialState = {
+    users: [],
+    roles: []
+};
 
 export default function (state = initialState, action) {
-    const { type, payload } = action;
+        const {type, payload} = action;
+        switch (type) {
+            case ALL_USERS:
+                return {
+                    ...state,
+                    users: payload
+                };
 
-    switch (type) {
-        case ALL_USERS:
-            return { allUsers: payload };
+            case ALL_ROLES:
+                return {
+                    ...state,
+                    roles: payload
+                };
+            default:
+                return state;
 
-        default:
-            return state;
-    }
+        }
 }
