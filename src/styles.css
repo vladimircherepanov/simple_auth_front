@@ -36,7 +36,12 @@ label {
 .form-control#subscribeField2 {
     background-color: red;
 }
+
 .mb-3.nav.nav-tabs.nav-justified{
    border-radius: 0;
+}
+
+.redAlert {
+    color: red;
 }
 

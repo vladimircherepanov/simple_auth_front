@@ -39,7 +39,7 @@ const SigninForm = () => {
         }),
         onSubmit: (values) => {
             setLoading(true);
-            alert(JSON.stringify(values, null, 2));
+            //alert(JSON.stringify(values, null, 2));
 
                 dispatch(login( values.email, values.password))
                     .then(() => {
@@ -80,6 +80,7 @@ const SigninForm = () => {
                         <div className="form-alert">{formik.errors.password}</div>
                     ) : null}
                 </FloatingLabel>
+                <div className="redAlert" >{message}</div>
                 <a href>Forgot password?</a>
 
                 <Button type="submit">SIGN IN</Button>

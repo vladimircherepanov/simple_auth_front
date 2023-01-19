@@ -1,17 +1,17 @@
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { Navigate, useNavigate  } from 'react-router-dom';
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-
-import { register } from "../actions/auth";
-
+import { register, login } from "../actions/auth";
 
 const SignupForm = () => {
+
+    let navigate = useNavigate();
 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -51,6 +51,10 @@ const SignupForm = () => {
             dispatch(register(values.email, values.password))
                 .then(() => {
                     setSuccessful(true);
+                    ///// MOVE TO PROFILE AFTER REGISTRATION ///////
+                    dispatch(login(values.email, values.password)).then(r =>
+                        navigate("/profile")
+                    )
                 })
                 .catch(() => {
                     setSuccessful(false);
@@ -70,6 +74,7 @@ const SignupForm = () => {
                     {formik.touched.email && formik.errors.email ? (
                         <div className="form-alert">{formik.errors.email}</div>
                     ) : null}
+
                 </FloatingLabel>
 
                 <FloatingLabel id="password" label="Password">
@@ -96,6 +101,7 @@ const SignupForm = () => {
                     ) : null}
                 </FloatingLabel>
 
+                <div className="redAlert" >{message}</div>
 
                 <Button type="submit">SIGN UP</Button>
             </Form>

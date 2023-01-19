@@ -1,4 +1,4 @@
-import {ALL_USERS, ALL_ROLES} from "../actions/types";
+import {ALL_USERS, ALL_ROLES, DELETE_USER} from "../actions/types";
 import UserService from "../services/user.service";
 const initialState = {
     users: [],
@@ -19,6 +19,11 @@ export default function (state = initialState, action) {
                     ...state,
                     roles: payload
                 };
+            case DELETE_USER:
+                return  {
+                    ...state,
+                    id: payload
+                }
             default:
                 return state;
 

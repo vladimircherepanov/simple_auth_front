@@ -27,6 +27,11 @@ const allRoles = () => {
     return axios.get(API_URL + "admin/allroles", { headers: authHeader() });
 };
 
+const deleteUserById = (id) => {
+    return axios.delete(API_URL + "admin/users/" + id , { headers: authHeader() });
+
+};
+
 
 
 export default {
@@ -36,4 +41,5 @@ export default {
     getAdminBoard,
     allUsers,
     allRoles,
+    deleteUserById,
 };
